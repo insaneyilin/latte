@@ -33,6 +33,8 @@ function App() {
 				}
 				this.set_frame(this.fnames[0]);
 				focus_frame_row(getFrameRow(this.fnames[0]));
+				// console.log('first fname: ');
+				// console.log(this.fnames[0]);  // 0_drive_0064_sync/0000000500
 			},
 			error: function(error) {
 				console.log(error);
@@ -97,8 +99,8 @@ function App() {
 
 					this.frames[fname] = frame;
 
-					this.get_Mask_RCNN_Labels(fname);
-					this.predict_next_frame_bounding_box(this.get_prev_fname(fname));
+					// this.get_Mask_RCNN_Labels(fname);
+					// this.predict_next_frame_bounding_box(this.get_prev_fname(fname));
 					show(frame);
 				},
 				error: function(error) {
