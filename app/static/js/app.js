@@ -65,13 +65,13 @@ function App() {
 			return;
 		} 
 		if (this.cur_frame) {
-			this.write_frame_out();
+			// this.write_frame_out();
 			this.cur_frame.scene_remove_frame_children();	
 			this.show_prev_frame = false;	
 		}
 		if (frame) {
 			show(frame);
-			this.predict_next_frame_bounding_box(this.get_prev_fname(fname));
+			// this.predict_next_frame_bounding_box(this.get_prev_fname(fname));
 		} else {
 			$.ajax({
 				context: this,
@@ -92,6 +92,7 @@ function App() {
 						for (var i = 0; i < bounding_boxes.length; i++) {
 							box = bounding_boxes[i];
 							frame.bounding_boxes.push(box);
+							// console.log(box);
 							box.add_text_label();
 							frame.annotated = true;
 						}

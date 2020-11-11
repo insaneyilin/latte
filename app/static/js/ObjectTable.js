@@ -4,6 +4,7 @@ var options = `<select>
     <option value="truck">Truck</option>
     <option value="pedestrian">Pedestrian</option>
     <option value="cyclist">Cyclist</option>
+    <option value="trafficcone">Traffic Cone</option>
     <option value="sitter">Sitter</option>
     <option value="tram">Tram</option>
     <option value="misc">Misc</option>
@@ -24,10 +25,11 @@ function addObjectRow(box) {
         <td><div class='object_row'>{1}</div></td></tr>".format(box.id, options)
     );
     if (box.object_id) {
-        console.log("asssss");
         var row = getRow(box.id);
-        console.log(row);
+        // console.log(row);
         $(row).find("select").val(box.object_id);
+        // console.log(box.id);
+        // console.log(box.object_id);
     }
     $("{0} tbody select".format(OBJECT_TABLE)).last().focus();
 }

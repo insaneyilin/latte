@@ -271,6 +271,7 @@ Box.parseJSON = function(json_boxes) {
         cx = json_box['center']['x'];
         cy = json_box['center']['y'];
         angle = json_box['angle'];
+        obj_type_id = json_box['object_id'];
 
         center = new THREE.Vector3(cy, 0, cx);
         top_right = new THREE.Vector3(cy + l / 2, app.eps, cx + w / 2);
@@ -279,11 +280,13 @@ Box.parseJSON = function(json_boxes) {
         // rotate cursor and anchor
         rotate(top_right, bottom_left, -angle);
         box = createBox(top_right, bottom_left, angle);
+        box.object_id = obj_type_id;
+
         if (json_box.hasOwnProperty('box_id')) {
             box.id = json_box.box_id;
         }
         bounding_boxes.push(box);
-        console.log("output: ", bounding_boxes);
+        // console.log("output: ", bounding_boxes);
     }
     return bounding_boxes;
 }
